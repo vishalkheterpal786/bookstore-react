@@ -1,0 +1,5 @@
+.book-item{
+    margin: 5px 10%;
+    display: flex;
+    justify-content: space-between;
+}
