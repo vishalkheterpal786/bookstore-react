@@ -15,3 +15,14 @@
 # Folder structure
 
 ## Project Structure
+
+├───public
+└───src
+├───components
+│ ├───BookItem
+│ ├───BookList
+│ ├───Cart
+│ ├───CartItem
+│ └───Checkout
+├───pages
+└───Utils
