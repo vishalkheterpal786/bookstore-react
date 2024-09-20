@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../Utils/AxiosHelper';
-
+import { CART_ENDPOINTS } from '../Utils/Constants';
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axiosInstance.get('/cart/getCart');
-        console.log('cart item ', response);
+        const response = await axiosInstance.get(CART_ENDPOINTS.GET_CART);
         setCartItems(response.data);
       } catch (error) {
         console.error('Error fetching cart items:', error);

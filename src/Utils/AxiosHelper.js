@@ -1,8 +1,8 @@
 import axios from 'axios';
-
+import { BASE_URL } from '../Utils/Constants';
 // Create an Axios instance
 const AxiosHelper = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: BASE_URL,
 });
 
 // Add a request interceptor to include JWT token in headers

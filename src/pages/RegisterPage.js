@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AxiosInstance from '../Utils/AxiosHelper';
+import { AUTH_ENDPOINTS } from '../Utils/Constants';
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +14,7 @@ const RegisterPage = () => {
 
     try {
       // Call the POST register endpoint
-      const response = await AxiosInstance.post('/customer/register', {
+      await AxiosInstance.post(AUTH_ENDPOINTS.REGISTER, {
         username,
         password,
       });
@@ -25,7 +26,6 @@ const RegisterPage = () => {
       }, 2000); // Redirect after 2 seconds
     } catch (error) {
       setErrorMessage('Registration failed: ' + error.response?.data?.message || 'Something went wrong.');
-
       console.error('Error during registration:', error);
     }
   };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../Utils/AxiosHelper'; // Use your custom axios instance
-
+import axiosInstance from '../Utils/AxiosHelper';
+import { AUTH_ENDPOINTS } from '../Utils/Constants';
 const LoginPage = ({ handleLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +13,7 @@ const LoginPage = ({ handleLogin }) => {
 
     try {
       // Call the login API
-      const response = await axiosInstance.post('/customer/login', {
+      const response = await axiosInstance.post(AUTH_ENDPOINTS.LOGIN, {
         username,
         password,
       });

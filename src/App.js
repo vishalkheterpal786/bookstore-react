@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import BookList from './components/BookList';
-import Cart from './components/Cart';
-import Checkout from './components/Checkout';
 import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 const App = () => {

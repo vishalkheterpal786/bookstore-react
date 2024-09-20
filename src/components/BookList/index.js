@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import BookItem from '../BookItem';
 import AxiosHelper from '../../Utils/AxiosHelper';
 import { useNavigate } from 'react-router-dom';
-
+import { BOOK_ENDPOINTS, CART_ENDPOINTS } from '../../Utils/Constants';
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const BookList = () => {
 
   const addToCart = async (bookId, quantity) => {
     try {
-      await AxiosHelper.post('/cart/addToCart', {
+      await AxiosHelper.post(CART_ENDPOINTS.ADD_TO_CART, {
         bookId,
         quantity,
       });
@@ -23,7 +23,7 @@ const BookList = () => {
   };
   useEffect(() => {
     // Fetch books from the API
-    AxiosHelper.get('/books/getAllBooks')
+    AxiosHelper.get(BOOK_ENDPOINTS.GET_ALL_BOOKS)
       .then((response) => setBooks(response.data))
       .catch((error) => console.error('Error fetching books:', error));
   }, []);
